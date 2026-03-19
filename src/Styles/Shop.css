@@ -1,5 +1,17 @@
 .item-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(100px, 300px));
     grid-template-rows: auto;
+    grid-gap: 0.5rem;
+    align-items: center;
+}
+
+.item-card {
+    background-color: rgba(10, 10, 10, 0.1);
+    border: 0.2rem solid rgba(100, 100, 100, 0.2);
+    border-radius: 20px;
+}
+
+.item-card > img {
+    max-width: 90%;
 }

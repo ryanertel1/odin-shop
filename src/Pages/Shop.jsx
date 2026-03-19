@@ -32,27 +32,15 @@ const Shop = () => {
 
     return (
         <div className='shop-container'>
-            <h2>Shop Page!</h2>
             {loadingItems && <p>Loading data...</p>}
             {error && <p>Error: {error}</p>}
             {!loadingItems && !error && (
-                <ul>
+                <div className = 'item-container'>
                     {storeItems.map(item => (
-                        <li key={item.id}>{item.title}</li>
+                        <ItemCard key={item.id} title={item.title} price={item.price} image={item.image}></ItemCard>
                     ))}
-                </ul>
+                </div>
             )}
-            <div className = 'item-container'>
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-                <ItemCard />
-            </div>
         </div>
 
     )

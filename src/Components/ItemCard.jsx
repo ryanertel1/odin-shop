@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
-const ItemCard = () => {
+const ItemCard = ( {...props} ) => {
     return (
-        <>
-            <h3>i'm an item card!</h3>
-        </>
+        <div className='item-card'>
+            <h3>{props.title}</h3>
+            <img src={props.image}></img>
+            <h4>${props.price}</h4>
+        </div>
     )
 }
 
