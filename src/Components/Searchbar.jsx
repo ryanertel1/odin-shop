@@ -9,11 +9,11 @@ const Searchbar = () => {
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            initiateSearch();
+            handleSearch();
         }
     }
 
-    const initiateSearch = () => {
+    const handleSearch = () => {
         console.log(`search for ${searchQuery} initiated`);
     }
 
