@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Searchbar = () => {
+const Searchbar = ({...props}) => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleInputChange = (e) => {
@@ -15,6 +15,7 @@ const Searchbar = () => {
 
     const handleSearch = () => {
         console.log(`search for ${searchQuery} initiated`);
+        props.onSearchInput(searchQuery);
     }
 
     return (
