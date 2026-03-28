@@ -110,3 +110,8 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.cart-symbol {
+  font-size: 2em;
+  color: black;
+}

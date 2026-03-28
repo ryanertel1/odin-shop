@@ -1,15 +1,15 @@
 import '../Styles/Navbar.css';
 import { Link } from 'react-router';
 import Searchbar from './Searchbar';
-import Cart from './Cart';
+import { MdOutlineShoppingCart } from 'react-icons/md';
 
-const Navbar = ({onSearchInput}) => {
+const Navbar = ({ ...props }) => {
     return (
         <nav>
             <Link to='/'>Home</Link>
             <Link to='shop'>Shop</Link>
-            <Searchbar onSearchInput={onSearchInput}/>
-            <Cart />
+            <Searchbar onSearchInput={props.onSearchInput}/>
+            <MdOutlineShoppingCart className='cart-symbol' onClick={ props.onCartClick }/>
         </nav>
     )
 }
