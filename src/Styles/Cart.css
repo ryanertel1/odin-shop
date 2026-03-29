@@ -9,6 +9,11 @@
     opacity: 0;
 }
 
+.overlay-transition {
+    opacity: 1;
+    transition: opacity 1000ms linear;
+}
+
 .modal {
     position: absolute;
     top: 0%;
@@ -22,10 +27,5 @@
 .modal-transition {
     transform: translateX(-100%);
     transition: transform 1000ms ease-in-out;
-}
-
-.overlay-transition {
-    opacity: 1;
-    transition: opacity 1000ms linear;
 }
 

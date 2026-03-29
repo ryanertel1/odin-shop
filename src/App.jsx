@@ -1,4 +1,4 @@
-import { Outlet, useOutletContext, useNavigate } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import { useState } from 'react';
 import Navbar from './Components/Navbar.jsx';
 import Cart from './Components/Cart.jsx';
@@ -22,11 +22,19 @@ function App() {
     setIsCartOpen(false);
   }
 
+  const handleCartClear = () => {
+    console.log('clearing cart in app.jsx');
+  }
+
+  const handleCartAdd = (addId, addQty) => {
+    console.log(`adding ${addQty} of item: ${addId} to cart`);
+  }
+
   return (
     <>
       <Navbar onSearchInput={handleSearchInput} onCartClick={handleCartClick}></Navbar>
-      <Cart isOpen={isCartOpen} onClose={handleCartClose}>Fancy Modal!</Cart>
-      <Outlet context={searchInput}/>
+      <Cart isOpen={isCartOpen} onClose={handleCartClose} onClear={handleCartClear}></Cart>
+      <Outlet context={{searchInput, handleCartAdd}}/>
     </>
   )
 }

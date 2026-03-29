@@ -9,7 +9,8 @@ const Shop = ({...props}) => {
     const [loadingItems, setLoadingItems] = useState(true);
     const [error, setError] = useState(null);
 
-    const searchInput = useOutletContext();
+    const searchInput = useOutletContext().searchInput;
+    const handleCartAdd = useOutletContext().handleCartAdd;
 
     const checkSearch = (data) => {
         //skips search if no search string provided
@@ -57,7 +58,7 @@ const Shop = ({...props}) => {
             {!loadingItems && !error && (
                 <div className = 'item-container'>
                     {storeItems.filter(checkSearch).map(item => (
-                        <ItemCard key={item.id} title={item.title} price={item.price} image={item.image}></ItemCard>
+                        <ItemCard key={item.id} id={item.id} title={item.title} price={item.price} image={item.image} handleCartAdd={handleCartAdd}></ItemCard>
                     ))}
                 </div>
             )}
