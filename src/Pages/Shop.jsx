@@ -3,7 +3,7 @@ import '../Styles/Shop.css';
 import { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router';
 
-const Shop = ({...props}) => {
+const Shop = () => {
 
     const [storeItems, setStoreItems] = useState();
     const [loadingItems, setLoadingItems] = useState(true);
@@ -41,6 +41,17 @@ const Shop = ({...props}) => {
                 setError(null);
             } catch (error) {
                 setError(error.message);
+                
+                const fakeItems = [
+                    {
+                        id: 0, title: 'shirt', price: 3.50,
+                    }, {
+                        id: 1, title: 'jeans', price: 9.75,
+                    }, {
+                        id: 2, title: 'shoes', price: 15.25,
+                    }
+                ];
+                setStoreItems(fakeItems);
             } finally {
                 setLoadingItems(false);
             }
@@ -58,7 +69,14 @@ const Shop = ({...props}) => {
             {!loadingItems && !error && (
                 <div className = 'item-container'>
                     {storeItems.filter(checkSearch).map(item => (
-                        <ItemCard key={item.id} id={item.id} title={item.title} price={item.price} image={item.image} handleCartAdd={handleCartAdd}></ItemCard>
+                        <ItemCard key={item.id} id={item.id} title={item.title} price={item.price} image={item.image} handleCartAdd={handleCartAdd} />
+                    ))}
+                </div>
+            )}
+            {!loadingItems && error && (
+                <div className = 'item-container'>
+                    {storeItems.filter(checkSearch).map(item => (
+                        <ItemCard key={item.id} id={item.id} title={item.title} price={item.price} image={item.image ? item.image : 'https://www.shopify.com/partners/blog/placeholder-images'} handleCartAdd={handleCartAdd} />
                     ))}
                 </div>
             )}

@@ -2,6 +2,12 @@ import { useState } from 'react';
 
 const ItemCard = ( {...props} ) => {
     const [itemQty, setItemQty] = useState(0);
+    const [itemInfo, setItemInfo] = useState({
+        id: props.id,
+        title: props.title,
+        image: props.image,
+        price: props.price,
+    })
 
     const handleQtyChange = (e) => {
         const newQty = Math.floor(e.target.value);
@@ -31,7 +37,7 @@ const ItemCard = ( {...props} ) => {
                 </input>
                 <button onClick={handleQtyIncrement}>+</button>
             </div>
-            <button onClick={() => props.handleCartAdd(props.id, itemQty)}>Add to cart</button>
+            <button onClick={() => props.handleCartAdd(itemInfo, itemQty)}>Add to cart</button>
         </div>
     )
 }
