@@ -6,10 +6,15 @@ import { MdOutlineShoppingCart } from 'react-icons/md';
 const Navbar = ({ ...props }) => {
     return (
         <nav>
-            <Link to='/'>Home</Link>
-            <Link to='shop'>Shop</Link>
-            <Searchbar onSearchInput={props.onSearchInput}/>
-            <MdOutlineShoppingCart className='cart-symbol' onClick={ props.onCartClick }/>
+            <div className='nav-buttons'>
+                <Link to='/'>Home</Link>
+                <Link to='shop'>Shop</Link>
+            </div>
+            <Searchbar className='searchbar' onSearchInput={props.onSearchInput}/>
+            <div className='cart-button'>
+                { (props.cartNumber > 0) && <span className='cart-number'>{props.cartNumber}</span> }
+                <MdOutlineShoppingCart className='cart-symbol' onClick={ props.onCartClick }/>
+            </div>
         </nav>
     )
 }

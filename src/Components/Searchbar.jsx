@@ -14,12 +14,11 @@ const Searchbar = ({...props}) => {
     }
 
     const handleSearch = () => {
-        console.log(`search for ${searchQuery} initiated`);
         props.onSearchInput(searchQuery);
     }
 
     return (
-        <div>
+        <div className={props.className}>
             <input
                 type='text'
                 value={ searchQuery }

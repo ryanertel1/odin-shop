@@ -3,8 +3,9 @@ nav {
     background-color: slategray;
     display: flex;
     align-items: center;
+    justify-content:space-between;
     padding-block: .75rem;
-    padding-inline: 8rem;
+    padding-inline: 3rem;
     position: sticky;
     z-index: 100;
     top: 0;
@@ -16,4 +17,26 @@ a {
     color: white;
     text-decoration: none;
     padding-right: .5rem;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cart-button {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.cart-number {
+    font-size: 1.2rem;
+    align-self: flex-start;
+    color: black;
+}
+
+.cart-symbol {
+    min-width: 30px;
+    font-size: 2em;
 }

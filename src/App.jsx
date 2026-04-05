@@ -50,7 +50,6 @@ function App() {
 
     let newList = [...cartItemList];
     newList.splice(index, 1);
-    console.log(`initial list: ${cartItemList}\n\nnew list: ${newList}`);
     return(newList);
   }
 
@@ -74,13 +73,22 @@ function App() {
   }
 
   const handleCartClear = () => {
-    console.log('clearing cart');
     setCartItemList([]);
+  }
+
+  const sumCartItems = () => {
+    if (cartItemList.length) {
+      let itemsNumber = 0;
+      for (const item of cartItemList) {
+        itemsNumber += item[1];
+      }
+      return (itemsNumber);
+    }
   }
 
   return (
     <>
-      <Navbar onSearchInput={handleSearchInput} onCartClick={handleCartClick} />
+      <Navbar onSearchInput={handleSearchInput} onCartClick={handleCartClick} cartNumber={sumCartItems()}/>
       <Cart
         isOpen={isCartOpen}
         onClose={handleCartClose}
