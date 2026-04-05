@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MdSearch } from 'react-icons/md';
 
 const Searchbar = ({...props}) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -19,11 +20,13 @@ const Searchbar = ({...props}) => {
 
     return (
         <div className={props.className}>
+            <MdSearch className='search-icon'/>
             <input
-                type='text'
+                type='search'
                 value={ searchQuery }
                 onChange={ handleInputChange }
-                onKeyDown={ handleKeyDown }>
+                onKeyDown={ handleKeyDown }
+                placeholder={ 'Search' }>
             </input>
         </div>
     )

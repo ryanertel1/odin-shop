@@ -16,7 +16,11 @@ nav {
 a {
     color: white;
     text-decoration: none;
-    padding-right: .5rem;
+    padding-right: 1.2rem;
+}
+
+.selected-link {
+    text-decoration: underline;
 }
 
 .nav-buttons {
@@ -39,4 +43,41 @@ a {
 .cart-symbol {
     min-width: 30px;
     font-size: 2em;
+}
+
+.searchbar {
+    --padding: 10px;
+    border-radius: 25px;
+    background: #f6f6f6;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding: var(--padding);
+    width: 100px;
+    transition: width 0.50s;
+}
+
+.searchbar:focus-within {
+    width: 300px;
+}
+
+.searchbar > input {
+    font-size: 16px;
+    color: #333333;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    flex: 1;
+    min-width: 75px;
+}
+
+.searchbar > input::placeholder,
+.search-icon {
+    color: rgba(0,0,0,0.50);
+}
+
+.search-icon {
+    font-size: 1.5rem;
+    flex: none;
 }

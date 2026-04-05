@@ -1,14 +1,28 @@
 import '../Styles/Navbar.css';
-import { Link } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 import Searchbar from './Searchbar';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 
 const Navbar = ({ ...props }) => {
+    const location = useLocation();
+
     return (
         <nav>
             <div className='nav-buttons'>
-                <Link to='/'>Home</Link>
-                <Link to='shop'>Shop</Link>
+                <NavLink to='/'
+                    className={ ({isActive}) => (
+                        isActive && 'selected-link'
+                    )}
+                >
+                    Home
+                </NavLink>
+                <NavLink to='shop'
+                    className={ ({isActive}) => (
+                        isActive && 'selected-link'
+                    )}
+                >
+                    Shop
+                </NavLink>
             </div>
             <Searchbar className='searchbar' onSearchInput={props.onSearchInput}/>
             <div className='cart-button'>
