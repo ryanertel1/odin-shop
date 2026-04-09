@@ -11,14 +11,14 @@ const Navbar = ({ ...props }) => {
             <div className='nav-buttons'>
                 <NavLink to='/'
                     className={ ({isActive}) => (
-                        isActive && 'selected-link'
+                        isActive ? 'selected-link' : undefined
                     )}
                 >
                     Home
                 </NavLink>
                 <NavLink to='shop'
                     className={ ({isActive}) => (
-                        isActive && 'selected-link'
+                        isActive ? 'selected-link' : undefined
                     )}
                 >
                     Shop

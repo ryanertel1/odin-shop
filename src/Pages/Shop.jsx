@@ -49,6 +49,10 @@ const Shop = () => {
                         id: 1, title: 'jeans', price: 9.75,
                     }, {
                         id: 2, title: 'shoes', price: 15.25,
+                    }, {
+                        id: 3, title: 'tie', price: 7.50,
+                    }, {
+                        id: 4, title: 'hat', price: 5.25,
                     }
                 ];
                 setStoreItems(fakeItems);
@@ -76,7 +80,7 @@ const Shop = () => {
             {!loadingItems && error && (
                 <div className = 'item-container'>
                     {storeItems.filter(checkSearch).map(item => (
-                        <ItemCard key={item.id} id={item.id} title={item.title} price={item.price} image={item.image ? item.image : 'https://www.shopify.com/partners/blog/placeholder-images'} handleCartAdd={handleCartAdd} />
+                        <ItemCard className='item-card' key={item.id} id={item.id} title={item.title} price={item.price} image={item.image ? item.image : 'https://dummyimage.com/100x100'} handleCartAdd={handleCartAdd} />
                     ))}
                 </div>
             )}

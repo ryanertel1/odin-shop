@@ -1,0 +1,43 @@
+.item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quantity-buttons {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    --quantity-height: 30px;
+}
+
+.quantity-input {
+    flex-basis: auto;
+    min-width: 30px;
+    border: 1px solid rgba(40, 40, 40, 0.3);
+    border-left: none;
+    border-right: none;
+}
+
+.decrement-button,
+.increment-button {
+    flex: 0;
+    border: 1px solid rgba(40, 40, 40, 0.3);
+    height: var(--quantity-height);
+    --border-radius: calc(var(--quantity-height) / 2);
+    background-color: #A7DDFF;
+    width: 30px;
+}
+
+.decrement-button {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    justify-content: flex-start;
+    border-right: none;
+}
+
+.increment-button {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    justify-content: flex-end;
+    border-left: none;
+}

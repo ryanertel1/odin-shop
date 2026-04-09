@@ -5,18 +5,24 @@ import '../Styles/Cart.css';
 
 const Cart = ( { isOpen, onClose, cartItems, onRemove, onQtyAdjust, onClear } ) => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
-        if(isOpen) { setIsLoaded(true); }
-        else { setIsLoaded(false); }
+        if(isOpen) { setIsReady(true); }
+        else { setIsReady(false); }
     }, [isOpen]);
 
-    if (!isOpen) return null
+    const handleEnd = () => {
+        if(isOpen) { setIsLoaded(true); }
+        else { setIsLoaded(false); }
+    }
+
+    if (!isOpen && !isLoaded) return null;
     return ReactDom.createPortal(
         <>
-            <div className={`modal ${isLoaded ? 'modal-transition' : ''}`}>
-                <button onClick={onClose}>X</button>
-                <button onClick={onClear}>Clear</button>
+            <div className={`modal ${isReady ? 'modal-transition-in' : 'modal-transition-out'}`} onTransitionEnd={handleEnd}>
+                <button className='close-button' onClick={onClose}>X</button>
+                <button className='clear-button' onClick={onClear}>Clear</button>
                 {cartItems.length > 0 && <div className='cart-contents'>
                     {cartItems.map(item => (
                         <CartItem
