@@ -47,6 +47,9 @@ a {
 }
 
 .searchbar {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
     --padding: 10px;
     border-radius: 25px;
     background: #dbdbdb;
@@ -90,4 +93,14 @@ a {
 .search-icon {
     font-size: 1.5rem;
     flex: none;
+}
+
+@media screen and (max-width: 450px) {
+    nav {
+        padding-inline: 1.5rem;
+    }
+
+    a {
+        padding-right: 0.8rem;
+    }
 }
